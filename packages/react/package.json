@@ -1,0 +1,28 @@
+{
+  "name": "@xhs/xswr-react",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "package": "NODE_ENV=production tsup",
+    "prepackage": "rm -rf dist",
+    "release": "vv"
+  },
+  "dependencies": {
+    "@xhs/xswr-core": "workspace:*"
+  },
+  "devDependencies": {
+    "react": "^18",
+    "@types/react": "^18"
+  }
+}

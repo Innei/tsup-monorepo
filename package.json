@@ -1,0 +1,53 @@
+{
+  "name": "-",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "pnpm": ">=7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --ignore-path ./.prettierignore --write ",
+      "eslint --cache --fix"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install && node scripts/should-build-pre.mjs",
+    "build": "turbo run package",
+    "test": "vitest",
+    "docs": "pnpm -C docs run dev ",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx,.vue packages/** --fix",
+    "format": "prettier --ignore-path ./.prettierignore --write packages/**",
+    "test:core": "vitest --watch packages/core",
+    "test:xswr": "vitest --watch packages/xswr",
+    "bump": "bump"
+  },
+  "devDependencies": {
+    "@innei/bump-version": "latest",
+    "@innei/eslint-config-react-ts": "0.9.4",
+    "@innei/prettier": "0.9.4",
+    "@tanstack/query-core": "^4.24.4",
+    "@types/node": "18.11.9",
+    "husky": "8.0.2",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "tsc-alias": "1.7.1",
+    "tsup": "^6.1.2",
+    "turbo": "^1.6.3",
+    "typescript": "4.8.4",
+    "vite": "3.2.3",
+    "vite-tsconfig-paths": "3.5.2",
+    "vitepress": "1.0.0-alpha.29",
+    "vitest": "0.25.5"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "zx": "^7.1.1"
+  }
+}

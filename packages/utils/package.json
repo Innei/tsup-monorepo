@@ -1,0 +1,40 @@
+{
+  "name": "@xhs/xswr-utils",
+  "version": "0.0.0",
+  "author": "Innei",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.cjs",
+        "import": "./dist/index.js"
+      }
+    }
+  },
+  "bump": {
+    "before": [
+      "git pull --rebase",
+      "pnpm i",
+      "npm run package"
+    ],
+    "after": [],
+    "publish": true
+  },
+  "engines": {
+    "pnpm": ">=6"
+  },
+  "scripts": {
+    "package": "NODE_ENV=production tsup",
+    "prepackage": "rm -rf dist",
+    "release": "vv",
+    "test": "vitest"
+  },
+  "devDependencies": {}
+}
