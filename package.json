@@ -46,8 +46,5 @@
     "vitepress": "1.0.0-alpha.29",
     "vitest": "0.25.5"
   },
-  "dependencies": {
-    "js-yaml": "^4.1.0",
-    "zx": "^7.1.1"
-  }
+  "dependencies": {}
 }
